@@ -12,6 +12,18 @@ Die Website erklärt Coding Agents, Harness Engineering und rekursive Verbesseru
 - fünf alternative Zukunftsszenarien
 - Rollenkarte für Entwickler
 - verlinkte Primärquellen und vollständiger Forschungsbericht
+- `image-to-world` als reales Harness-Engineering-Fallbeispiel
+
+## Synergie mit Image to World
+
+[`image-to-world`](https://github.com/DomEscobar/image-to-world) bleibt bewusst ein separates, wiederverwendbares Tool. Future Dev dokumentiert daran ein konkretes Muster der kommenden Entwicklerarbeit:
+
+- Das Modell übernimmt semantische Entscheidungen.
+- Deterministische Scripts übernehmen wiederholbare Verarbeitung.
+- JSON Schema und Validator definieren maschinenprüfbare Wahrheit.
+- Contact Sheet und Verification-Render erzwingen visuelle Abnahme.
+
+Die Repos sind damit nicht doppelt, sondern zwei Schichten: `image-to-world` ist die Produktionsmaschine, `futuredev` erklärt das zugrunde liegende Engineering-Modell.
 
 ## Lokal starten
 

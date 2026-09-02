@@ -11,7 +11,7 @@ for (const viewport of viewports) {
     await page.goto("/");
     await expect(page.getByRole("heading", { name: "Wer baut, wenn Software selbst baut?" })).toBeVisible();
 
-    for (const id of ["shift", "loop", "lab", "scenarios", "roles"]) {
+    for (const id of ["shift", "loop", "example", "lab", "scenarios", "roles"]) {
       await page.locator(`#${id}`).scrollIntoViewIfNeeded();
       await page.waitForTimeout(120);
       if (id === "loop") {
@@ -22,6 +22,7 @@ for (const viewport of viewports) {
     }
 
     await expect(page.locator(".role-grid article").first()).toBeVisible();
+    await expect(page.getByRole("link", { name: /Repo ansehen/ })).toHaveAttribute("href", "https://github.com/DomEscobar/image-to-world");
     await page.getByRole("tab", { name: /Die Software-Explosion/ }).click();
     await expect(page.locator(".scenario-detail h3")).toHaveText("Die Software-Explosion");
 
