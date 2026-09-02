@@ -8,7 +8,6 @@ import { sources, years } from "./data";
 const chapters = [
   ["shift", "Der Wechsel"],
   ["loop", "Der Loop"],
-  ["example", "Praxis"],
   ["lab", "Der Engpass"],
   ["scenarios", "Szenarien"],
   ["roles", "Dein Fokus"],
@@ -87,25 +86,6 @@ function App() {
               ))}
             </div>
             <div className="loop-conclusion"><Warning size={28} weight="duotone" /><p>Singularität beginnt praktisch dort, wo dieser Loop schneller lernt, als Menschen ihn prüfen und organisieren können.</p></div>
-          </div>
-        </section>
-
-        <section className="case-section" id="example">
-          <div className="case-layout">
-            <div className="case-copy">
-              <span className="chapter-mark">Synergie in echtem Code</span>
-              <h2>Ein Harness, das heute schon arbeitet</h2>
-              <p><code>image-to-world</code> verwandelt ein Bild in strukturierte Welt-Daten. Das Modell versteht die Szene. Deterministische Scripts schneiden, prüfen und rendern.</p>
-              <div className="case-flow" aria-label="Pipeline von Image to World">
-                <span>Bild verstehen</span><ArrowRight size={18} /><span>Artefakte bauen</span><ArrowRight size={18} /><span>Schema prüfen</span><ArrowRight size={18} /><span>Visuell abnehmen</span>
-              </div>
-              <p className="case-point">Der entscheidende Punkt: Die KI darf kreativ entscheiden, aber nicht selbst behaupten, dass ihr Ergebnis korrekt ist.</p>
-              <a className="repo-link" href="https://github.com/DomEscobar/image-to-world" target="_blank" rel="noreferrer"><GithubLogo size={20} />Repo ansehen <ArrowUpRight size={18} /></a>
-            </div>
-            <figure>
-              <img src="/images/image-to-world-verification.webp" loading="lazy" alt="Verification-Render mit Weltansicht und freigestellten Assets aus Image to World" />
-              <figcaption>Realer Verification-Render: Platzierung oben, prüfbare Cut-outs unten.</figcaption>
-            </figure>
           </div>
         </section>
 
