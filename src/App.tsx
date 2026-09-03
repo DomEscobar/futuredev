@@ -2,15 +2,19 @@ import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowDown, ArrowRight, ArrowUpRight, GithubLogo, Moon, Sun, BookOpenText, CheckCircle, Warning } from "@phosphor-icons/react";
 import { BottleneckLab } from "./components/BottleneckLab";
+import { CompanyEvidence } from "./components/CompanyEvidence";
+import { DevelopmentLadder } from "./components/DevelopmentLadder";
+import { HarnessWorkshop } from "./components/HarnessWorkshop";
 import { ScenarioExplorer } from "./components/ScenarioExplorer";
 import { sources, years } from "./data";
 
 const chapters = [
   ["shift", "Der Wechsel"],
-  ["loop", "Der Loop"],
-  ["lab", "Der Engpass"],
+  ["proof", "Heute"],
+  ["harness", "Harness"],
+  ["beyond", "Nach Specs"],
   ["scenarios", "Szenarien"],
-  ["roles", "Dein Fokus"],
+  ["roles", "Deine Rolle"],
 ];
 
 function App() {
@@ -51,7 +55,7 @@ function App() {
 
       <main id="top">
         <section className="hero">
-          <img src="/images/recursive-machine.webp" alt="Eine technische Entwicklungsmaschine mit sichtbaren Rückkopplungen" fetchPriority="high" />
+          <img src="/images/recursive-machine.webp" width="1586" height="992" alt="Eine technische Entwicklungsmaschine mit sichtbaren Rückkopplungen" fetchPriority="high" />
           <div className="hero-scrim" />
           <motion.div className="hero-copy" initial={reduce ? false : { opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <span className="eyebrow">Softwareentwicklung 2027-2032</span>
@@ -71,6 +75,15 @@ function App() {
               <p>Stell dir eine Fabrik vor. Früher haben Entwickler jedes Teil selbst gebaut. Jetzt bauen sie Maschinen, die Teile bauen.</p>
               <p>Das Problem verschwindet nicht. Es wandert: Wer sagt der Maschine, was richtig ist? Wer stoppt sie? Wer haftet?</p>
             </div>
+          </div>
+        </section>
+
+        <section className="proof-section" id="proof">
+          <div className="section-wrap">
+            <h2>Die Zukunft läuft intern schon an</h2>
+            <p className="section-intro">Die Namen unterscheiden sich. Das Betriebssystem dahinter konvergiert auf Kontext, Werkzeuge, Verifikation und Rechte.</p>
+            <CompanyEvidence />
+            <p className="smith-note"><strong>Agent Smith, nüchtern betrachtet:</strong> Mit mittlerer Sicherheit ein realer interner Google-Agent. Nicht belegt ist, dass Smith allein einen bestimmten Anteil von Googles Code schreibt.</p>
           </div>
         </section>
 
@@ -98,6 +111,25 @@ function App() {
           </div>
         </section>
 
+        <section className="workshop-section" id="harness">
+          <div className="section-wrap">
+            <h2>Der Agent ist nur der Handwerker</h2>
+            <p className="section-intro">Das Harness ist Werkstatt, Auftrag, Werkzeugschrank, Qualitätskontrolle und Sicherheitszaun. Wähle einen echten Use Case.</p>
+            <HarnessWorkshop />
+          </div>
+        </section>
+
+        <section className="beyond-section" id="beyond">
+          <div className="section-wrap beyond-layout">
+            <div className="beyond-copy">
+              <h2>Specs sind nicht das Ende</h2>
+              <p>Sie werden zum generierten Zwischenformat. Der Mensch wandert von der Lösung zur Absicht, zu Beweisen und schließlich zur Kontrolle des gesamten Loops.</p>
+              <div className="compiler-line"><span>Absicht</span><ArrowRight size={18} /><span>Spec</span><ArrowRight size={18} /><span>Evidenz</span><ArrowRight size={18} /><span>Entscheidung</span></div>
+            </div>
+            <DevelopmentLadder />
+          </div>
+        </section>
+
         <section className="timeline-section">
           <div className="section-wrap timeline-layout">
             <div className="timeline-copy">
@@ -111,7 +143,7 @@ function App() {
                 <p>{years[activeYear].body}</p>
               </motion.div>
             </div>
-            <img src="/images/developer-2032.webp" loading="lazy" alt="Ein Entwickler bewertet mehrere automatisierte Arbeitsabläufe" />
+            <img src="/images/developer-2032.webp" width="1536" height="1024" loading="lazy" alt="Ein Entwickler bewertet mehrere automatisierte Arbeitsabläufe" />
           </div>
         </section>
 
@@ -129,8 +161,8 @@ function App() {
             <h2>Der Entwickler steigt eine Ebene höher</h2>
             <div className="role-grid">
               {[
-                ["Specification", "Macht aus Absicht überprüfbare Verträge."],
-                ["Verification", "Definiert, wann ein Ergebnis wirklich stimmt."],
+                ["Intent", "Macht Ziele, Nicht-Ziele und Konflikte explizit."],
+                ["Evidence", "Definiert, wann ein Ergebnis wirklich stimmt."],
                 ["Harness", "Baut Kontext, Tools, Rechte und Feedback-Loops."],
                 ["Reliability", "Begrenzt Schäden und macht Systeme rückholbar."],
                 ["Domain", "Bringt echtes Fach- und Kausalwissen ein."],
@@ -141,7 +173,12 @@ function App() {
                 </motion.article>
               ))}
             </div>
-            <blockquote>Entwickler produzieren weniger Artefakte. Sie definieren die Bedingungen, unter denen Artefakte vertraut und eingesetzt werden dürfen.</blockquote>
+            <div className="responsibility-map">
+              <div><strong>Definieren</strong><p>Intent besitzen, Aufgaben schneiden und implizites Wissen maschinenlesbar machen.</p></div>
+              <div><strong>Kontrollieren</strong><p>Fähigkeiten, Rechte, Evals, Agenten und Freigabeschwellen als System entwerfen.</p></div>
+              <div><strong>Verantworten</strong><p>Observability, Kosten, Durchsatz, technische Entropie und reale Konsequenzen tragen.</p></div>
+            </div>
+            <blockquote>Der Agent führt die Arbeit aus. Du besitzt weiterhin die Konsequenzen.</blockquote>
           </div>
         </section>
 

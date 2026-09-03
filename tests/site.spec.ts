@@ -11,7 +11,7 @@ for (const viewport of viewports) {
     await page.goto("/");
     await expect(page.getByRole("heading", { name: "Wer baut, wenn Software selbst baut?" })).toBeVisible();
 
-    for (const id of ["shift", "loop", "lab", "scenarios", "roles"]) {
+    for (const id of ["shift", "proof", "loop", "lab", "harness", "beyond", "scenarios", "roles"]) {
       await page.locator(`#${id}`).scrollIntoViewIfNeeded();
       await page.waitForTimeout(120);
       if (id === "loop") {
@@ -22,6 +22,15 @@ for (const viewport of viewports) {
     }
 
     await expect(page.locator(".role-grid article").first()).toBeVisible();
+    await page.getByRole("tab", { name: "Meta", exact: true }).click();
+    await expect(page.locator(".company-detail h3")).toHaveText("Kontext als Infrastruktur");
+
+    await page.getByRole("tab", { name: "Migration", exact: true }).click();
+    await expect(page.locator(".workshop-brief h3")).toContainText("sichere Batches");
+
+    await page.getByRole("tab", { name: /Intent-driven/ }).click();
+    await expect(page.locator(".ladder-bottleneck strong")).toHaveText("Zielfunktion");
+
     await page.getByRole("tab", { name: /Die Software-Explosion/ }).click();
     await expect(page.locator(".scenario-detail h3")).toHaveText("Die Software-Explosion");
 
@@ -33,12 +42,15 @@ for (const viewport of viewports) {
       const width = document.documentElement.clientWidth;
       return [...document.querySelectorAll<HTMLElement>("body *")]
         .filter((element) => {
+          if (element.closest(".workshop-tabs, .ladder-track")) return false;
           const rect = element.getBoundingClientRect();
           return rect.right > width + 2 || rect.left < -2;
         })
         .map((element) => ({ tag: element.tagName, className: element.className, text: element.innerText?.slice(0, 40) }));
     });
     expect(overflow).toEqual([]);
+    const pageOverflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+    expect(pageOverflow).toBeLessThanOrEqual(2);
 
     await page.locator(".icon-button").click();
     await expect(page.locator("html")).toHaveAttribute("data-theme", "light");

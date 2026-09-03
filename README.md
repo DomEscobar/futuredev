@@ -8,10 +8,30 @@ Die Website erklärt Coding Agents, Harness Engineering und rekursive Verbesseru
 
 - ELI5-Erklärung des rekursiven Entwicklungsloops
 - interaktiver Engpass-Simulator
+- öffentliche und geleakte Signale aus Google, Meta, Microsoft, Amazon, OpenAI und Anthropic
+- praktische Harness-Werkstatt mit fünf echten Use Cases
+- interaktive Stufen von Prompt-driven bis zu selbstverbessernden Entwicklungssystemen
 - Zeitreise von 2027 bis 2032
 - fünf alternative Zukunftsszenarien
-- Rollenkarte für Entwickler
+- Rollen- und Verantwortungslandkarte für Agentic Engineers
 - verlinkte Primärquellen und vollständiger Forschungsbericht
+
+## Der rote Faden
+
+```text
+Code wird billig
+  -> Big Tech baut interne Agentenplattformen
+  -> Harnesses machen Agenten produktionsfähig
+  -> Specs werden zum Zwischenformat
+  -> Intent, Evidenz und Policies werden zum menschlichen Fokus
+  -> selbstverbessernde Loops erzeugen neue Chancen und Kontrollprobleme
+```
+
+Die Website unterscheidet bewusst zwischen:
+
+- **Evidenz:** öffentlich dokumentierte Systeme, Studien und Unternehmensangaben
+- **Inferenz:** logische Ableitungen wie die Einordnung von Agent Smith als Oberfläche auf Googles DevAI-Plattform
+- **Prognose:** subjektive Szenario-Wahrscheinlichkeiten für 2027-2032
 
 ## Lokal starten
 

@@ -175,6 +175,84 @@ Deep systems knowledge does not become less valuable; it changes purpose. Develo
 
 The compact prediction is: **developers move from producing artifacts to designing the truth conditions under which artifacts may be trusted and deployed.**
 
+## What Big Tech Is Already Building Internally
+
+The clearest new evidence is that large technology companies are converging on internal agent operating systems rather than relying on one chat interface.
+
+### Google and Agent Smith
+
+Business Insider reported in March 2026 that Google employees were using an internal asynchronous agent called Agent Smith. Three anonymous sources described coding and multi-step work, access to internal tools and documents, and mobile check-ins. Google did not confirm the tool, so its existence and detailed behavior remain medium-confidence rather than established fact.
+
+Google's public DevAI hiring material is stronger evidence. It names Antigravity, Jetski, Marina, Cider with AGY, AGY CLI and AGY Hub, plus skills, sub-agents, MCP servers, connectors and safety guardrails. The most plausible inference is that Smith is a deeply integrated surface on this broader platform, not a secret standalone supermodel.
+
+Google's production migration paper shows the operational pattern: language models combined with AST tooling, heuristics, builds, tests and human-controlled rollout. This completed previously blocked migrations and reportedly saved hundreds of engineer-years. Prompting alone was not enough.
+
+The widely repeated Google code percentages require caution. The wording shifted from checked-in code involving accepted AI suggestions to AI-generated and engineer-validated new code. Google has not published a stable denominator or attributed a code share to Smith. AI clearly touches a rapidly growing share of Google code; Smith's individual share is unknown.
+
+### Convergent patterns across companies
+
+- **Meta:** internal models plus a context machine. More than 50 specialized agents mapped 4,100 proprietary files and maintained concise context. A separate production trial found an AI review feature initially made reviewers slower, forcing a workflow redesign.
+- **Microsoft:** multi-model rollout plus field measurement. Microsoft deployed multiple CLI agents and evaluated output in large field experiments rather than relying only on benchmark scores.
+- **Amazon:** large repeatable transformations and internal knowledge access. Steering files, specs, monorepo context and production feedback are treated as prerequisites.
+- **OpenAI:** harness-first engineering. Humans structure repositories, rules, tests and feedback loops while coding agents produce implementation.
+- **Anthropic:** deep dogfooding into AI R&D. AI accelerates code and experimentation, while review, compute, experiment latency and research judgment remain brakes.
+
+The shared architecture is:
+
+`proprietary context x tool access x asynchronous execution x verification x permissions x telemetry`
+
+## Harness Engineering In Practice
+
+The model is a fast craftsperson. The harness is the workshop: work order, project map, tools, permissions, tests, observability, stop rules and rollback.
+
+An agentic engineer owns ten practical responsibilities:
+
+1. **Intent:** define the goal, non-goals and protected behavior.
+2. **Task architecture:** split work into small, independently verifiable units.
+3. **Context:** make architecture and domain knowledge machine-readable.
+4. **Capabilities:** choose the tools, systems and data the agent may use.
+5. **Permissions:** enforce least privilege, approvals and blast-radius limits.
+6. **Evaluation:** define tests, invariants and evidence before accepting output.
+7. **Orchestration:** coordinate planners, implementers, critics and release agents.
+8. **Observability:** preserve actions, commands, decisions, costs and artifacts.
+9. **Throughput:** optimize accepted changes rather than generated code volume.
+10. **Entropy:** control duplication, stale context and architectural drift.
+
+Typical use cases reveal the pattern:
+
+- A bugfix begins with reproduction and a regression test, not an unverified patch.
+- A feature is decomposed into contracts and verified through API and browser flows.
+- A migration runs in small batches with builds, canaries and rollback thresholds.
+- An incident agent may inspect evidence, but production changes require explicit authority.
+- A UI agent must operate the real interface on desktop and mobile; compilation is not acceptance.
+
+Useful autonomy is multiplicative:
+
+`model capability x context quality x tool access x verification x safety boundaries`
+
+If any factor approaches zero, a stronger model does not rescue the system.
+
+## Beyond Spec-Driven Development
+
+Spec-driven development is an important transition, not the endpoint. Precise specifications still fail when they encode the wrong product, proxy metric or stakeholder assumption. The next bottleneck is truth and control.
+
+The likely abstraction ladder is:
+
+1. **Prompt-driven:** a human asks for an artifact; ambiguity is the bottleneck.
+2. **Spec-driven:** a human writes a machine-checkable contract; wrong specifications become the bottleneck.
+3. **Evidence-driven:** systems must produce independent proof; measurement becomes the bottleneck.
+4. **Intent-driven:** humans define outcomes and constraints while agents generate specifications and candidate solutions; objective design becomes the bottleneck.
+5. **Policy-driven autonomy:** agents act within rights, budgets and risk classes; governance becomes the bottleneck.
+6. **Self-improving development systems:** failures and interventions update evals, context and harnesses; control of the recursive loop becomes the bottleneck.
+
+Specifications do not disappear. They become a generated intermediate representation:
+
+`human intent -> machine-checkable specification -> execution -> evidence -> decision`
+
+The future role is therefore closer to an **intent and control engineer** than a specification writer. The human defines what should improve, what must never be violated, which evidence counts, how much risk is acceptable and which decisions cannot be delegated.
+
+The deepest transition is from specifying software to specifying the boundaries of a system that can generate both software and parts of its own specifications.
+
 ## Simulation-Backed Alternative Scenarios
 
 Several groups have run formal models or structured simulations, but they answer different questions. They should not be treated as independent confirmations of one forecast.
@@ -244,6 +322,14 @@ These probabilities are subjective synthesis, not outputs of any one simulation.
 - Epoch AI compute lead-time analysis: https://epoch.ai/gradient-updates/compute-scaling-will-slow-down-due-to-increasing-lead-times
 - Measuring AI R&D Automation: https://arxiv.org/html/2603.03992v3
 - DORA State of AI-assisted Software Development 2025: https://dora.dev/dora-report-2025/
+- Business Insider reporting on Google Agent Smith: https://www.businessinsider.de/wirtschaft/neues-ki-tool-fuer-google-mitarbeiter-agent-smith-sorgt-fuer-internen-hype/
+- Google Careers, Core DevAI stack: https://www.google.com/about/careers/applications/jobs/results/110538186614022854-staff-software-engineer-applied-ai
+- Google Antigravity: https://www.antigravity.google/blog/introducing-google-antigravity
+- Google internal code migration paper: https://arxiv.org/abs/2501.06972
+- Meta proprietary context agents: https://engineering.fb.com/2026/04/06/developer-tools/how-meta-used-ai-to-map-tribal-knowledge-in-large-scale-data-pipelines/
+- Microsoft developer field experiments: https://www.microsoft.com/en-us/research/publication/the-effects-of-generative-ai-on-high-skilled-work-evidence-from-three-field-experiments-with-software-developers/
+- Amazon internal developer workflows: https://aws.amazon.com/blogs/devops/how-generative-ai-is-transforming-developer-workflows-at-amazon/
+- Anthropic internal work study: https://www.anthropic.com/news/how-ai-is-transforming-work-at-anthropic
 
 ## Caveats / blockers
 
